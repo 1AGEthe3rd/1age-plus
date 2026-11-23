@@ -1,0 +1,41 @@
+name: Verify 1AGE Plus $3.33 studio membership proposal
+
+on:
+  pull_request:
+    paths:
+      - 'application.html'
+      - 'checkout/**'
+      - 'test-client.mjs'
+      - '.github/workflows/verify-plus-pricing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check proposed Plus prices and disclosure
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          app=Path('application.html').read_text()
+          js=Path('checkout/checkout.js').read_text()
+          html=Path('checkout/index.html').read_text()
+          client=Path('test-client.mjs').read_text()
+          assert '$3.33 <span>USD / month' in app
+          assert 'proposed $3.33 USD/month recurring terms' in app
+          assert 'One membership for access across participating 1AGEthe3rd projects' in app
+          assert 'no additional 1AGE Cash purchase fees' in app
+          assert 'not included in the membership' in app
+          assert "amount:333,currency:'USD',kind:'subscription'" in js
+          assert 'plus-demo-v3' in js and 'plus-demo-v3' in client
+          assert 'proposed $3.33 USD monthly studio-wide membership' in html
+          assert 'this is not implemented' in html
+          assert 'Payments are not enabled' in app
+          print('PASS: consistent $3.33 mock-only Plus policy, no live subscription claims.')
+          PY
+      - run: node --check checkout/checkout.js
+      - run: node --check test-client.mjs
