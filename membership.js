@@ -1,5 +1,7 @@
 import {createPlusTestClient} from './test-client.mjs';
 const client=createPlusTestClient(),$=id=>document.getElementById(id);let busy=false;
+// The public static site has no authenticated local API: never request disposable passwords there.
+if(!['localhost','127.0.0.1'].includes(location.hostname))$('plus-test').hidden=true;
 function controls(){const signed=client.signedIn();$('plus-test-signin').hidden=signed;$('plus-test-session').hidden=!signed;if(!signed){$('plus-test-events').hidden=true;$('plus-test-consent').checked=false;}}
 async function run(action){if(busy)return;busy=true;const buttons=[...$('plus-test').querySelectorAll('button')];buttons.forEach(b=>b.disabled=true);try{await action();}catch(e){$('plus-test-status').textContent=e.message;}finally{busy=false;buttons.forEach(b=>b.disabled=false);controls();}}
 function status(result){$('plus-test-status').textContent=result.active?'Test Plus entitlement active. No real membership or billing.':'Test Plus entitlement inactive. Free exploration remains available.';}
