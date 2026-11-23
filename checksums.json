@@ -5,9 +5,9 @@
   "VIRTUAL-BUILD.json": "fd14da221f3a0dc08523bc8ed9f289a7ade70e88220b4d51a741fcbce4504586",
   "_headers": "ce36ced9f69adc9400f4036007e5e4f30a4581a9e23819ba12a536a5001625f7",
   "checkout/checkout.js": "6d88a67cf0e47419de8c938acd86ab361bbd6165aeff78864cb7f9c740f25b99",
-  "checkout/index.html": "c31cb39daa699a454fe22285ab3b7d590b65372ffc4860e4cd544b11124f4beb",
+  "checkout/index.html": "3af2ad93163255e739eab42f401935add567130aed408df3df2782727e1e4cb9",
   "checkout/recovery.mjs": "104d74eb3924b3c62234d1446ca5092480a2839d101eee0fc688cae6212f64a0",
-  "index.html": "6612bcde4c1693ceb1817d037a6757b25f02c77420475f8bb852daed62282d92",
+  "index.html": "b70384dc43774262cfd591324e2a885976ffcec48a99531377eb005c6a1aade6",
   "membership.js": "9ae7325839f9390f1409364c639119f484a81d8451eafe454e282e1b949411fd",
   "plus.css": "dc371367ab14d60bb03b9ec1b50b013c23e6ed73e3e60ba9418f21132b04dabf",
   "plus.js": "eecbbf33d02f15aeff1fd87d5bfe564bccfc8f9dffde2fafa25f46beb9211d24",
@@ -31,5 +31,5 @@
   "shared/world-surface.png": "075b105d0e2e2fb614687c9ee112fe50b513a23a8d3631f5f2a3614651cc10d9",
   "test-client.mjs": "d32d258939d06207032fb30f3fa82914f23fb71c1de0793c0e95d8bf4b162f86",
   "virtual-entry.css": "e137fb63e9aa4532c646be062fee082b090b593696e03bf9c67693454af49fd8",
-  "virtual-entry.mjs": "a95b8b2d264e308be7496cde8041a375dfe910795199c85b8ee3ac1ebeb5c687"
+  "virtual-entry.mjs": "8e5581beb7ef03ae81be585bc5e1487267be9eadc9f7bf4f8e8cf33b1203bb03"
 }
