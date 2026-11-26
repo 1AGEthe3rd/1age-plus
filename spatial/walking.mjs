@@ -1,5 +1,5 @@
 import {subscribeInput} from '../shared/gamepad.mjs';
-export function createWalker(camera,canvas,{radius=10,eyeHeight=1.75,obstacles=[],spawn=[0,1.68,7],paused=()=>false,onTap=()=>{}}={}){
+export function createWalker(camera,canvas,{radius=10,eyeHeight=1.75,obstacles=[],spawn=[0,1.68,7],paused=()=>false,allowed=()=>true,onTap=()=>{}}={}){
  const keys=new Set();let pad={move:{x:0,y:0},look:{x:0,y:0}},yaw=0,pitch=0,drag=null;
  const reset=()=>{camera.position.set(spawn[0],eyeHeight,spawn[2]);yaw=0;pitch=0;camera.rotation.set(0,0,0,'YXZ');};
  reset();
@@ -12,7 +12,7 @@ export function createWalker(camera,canvas,{radius=10,eyeHeight=1.75,obstacles=[
  canvas.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId||paused())return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.x=e.clientX;drag.y=e.clientY;drag.d+=Math.hypot(dx,dy);if(drag.d>5){yaw-=dx*.003;pitch-=dy*.003;}});
  canvas.addEventListener('pointerup',e=>{if(drag?.id!==e.pointerId)return;const tap=drag.d<=5;drag=null;if(tap&&!paused())onTap(e);});
  for(const type of ['pointercancel','lostpointercapture'])canvas.addEventListener(type,()=>{drag=null;});
- const valid=(x,z)=>Math.hypot(x,z)<=radius&&obstacles.every(o=>Math.hypot(x-o.x,z-o.z)>o.r+.32);
+ const valid=(x,z)=>allowed(x,z)&&Math.hypot(x,z)<=radius&&obstacles.every(o=>Math.hypot(x-o.x,z-o.z)>o.r+.32);
  function update(dt){if(paused()){keys.clear();return;}dt=Math.min(.05,dt);
  yaw-=((pad.look.x||0)+Number(keys.has('ArrowRight'))-Number(keys.has('ArrowLeft')))*dt*1.9;
  pitch-=((pad.look.y||0)+Number(keys.has('ArrowDown'))-Number(keys.has('ArrowUp')))*dt*1.35;
