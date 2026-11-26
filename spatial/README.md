@@ -1,0 +1,10 @@
+# Spatial Design 011 — 1AGE Plus
+Single cosmic private-lounge concept, with public walkable entrance and a permanently locked navigation boundary in this preview. The architectural shell visible beyond the gate is public and contains no member data or protected assets. Guest membership information is accessible through the hologram or interact button even without WebGL. No fake local entitlement or unlock button.
+
+Planned member value: shared lounge, member social presence and events, exclusive releases, eligible freebies, and approved 1AGE Cash rewards. Basic public exploration of other apps remains free. No additional purchase should be required simply to enter an active member's lounge. Rewards are discretionary/budgeted benefits, not guaranteed financial return. No multiplayer, drop distribution, payments or rewards are enabled.
+
+Future secure integration: Page identity, verified server-side membership entitlement at entry and throughout member sessions, expiration/cancellation/refund handling, protected asset delivery where necessary, authorization on every reward/drop/social API, idempotent Cash ledger grants, server-controlled event limits, moderation/report/block and privacy tools. Client navigation boundaries are not authorization. Do not publish private member content in public static assets. No existing billing or identity implementation is changed.
+
+Pricing discrepancy: existing application.html displays a proposed $3.33/month test subscription; earlier founder direction was $1/month. New preview deliberately omits price pending founder confirmation. Existing test subscription and billing configuration untouched. No live activation.
+
+Local Three.js, Earth, logo and gamepad assets; pinned Quest architecture/walking foundation with additive navigation boundary. Browser/device/controller testing, rendered visual review, actual entitlement verification, member social and reward integration remain pending. No production entry or DNS change; obtain approval before merge.
